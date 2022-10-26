@@ -17,17 +17,17 @@
 
 	<select id="selectBonusSalary" parameterType="String" resultMap="bonusSalaryResult">
 		<![CDATA[
-				SELECT
-         		EMP_CODE ,
-         		EMP_NAME ,
-         		DEPT_CODE ,
-         		POSITION ,
-         		BASE_SALARY ,
-         		BASE_SALARY AS AWARDS_SALARY,
-         		GRADE 
-				FROM EMP_eval e, POSITION po WHERE po.POSITION = e.POSITION_CODE AND e.EMP_CODE = #{empCode}
+		SELECT
+			EMP_CODE ,
+			EMP_NAME ,
+			DEPT_CODE ,
+			POSITION ,
+			BASE_SALARY ,
+			BASE_SALARY AS AWARDS_SALARY,
+			GRADE
+		FROM EMP_eval e, POSITION po WHERE po.POSITION = e.POSITION_CODE AND e.EMP_CODE = #{empCode}
 		]]>
 	</select>
-		
-		
+
+
 </mapper>

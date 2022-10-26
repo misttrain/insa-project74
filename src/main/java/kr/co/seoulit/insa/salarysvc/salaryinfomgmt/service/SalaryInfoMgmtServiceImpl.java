@@ -17,7 +17,7 @@ import kr.co.seoulit.insa.salarysvc.salaryinfomgmt.to.SalaryBonusTO;
 
 @Service
 public class SalaryInfoMgmtServiceImpl implements SalaryInfoMgmtService{
-	
+
 	@Autowired
 	private FullTimeSalaryMapper fullTimeSalaryMapper;
 	@Autowired
@@ -25,62 +25,77 @@ public class SalaryInfoMgmtServiceImpl implements SalaryInfoMgmtService{
 	@Autowired
 	private SalaryBonusMapper salaryBonusMapper;
 
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public ArrayList<FullTimeSalTO> findselectSalary(String applyYearMonth, String empCode) {
 		HashMap<String, Object> map = new HashMap<>();
 		map.put("applyYearMonth", applyYearMonth);
 		map.put("empCode", empCode);
+
 		fullTimeSalaryMapper.selectFullTimeSalary(map);
-		
-		ArrayList<FullTimeSalTO> fullTimeSalaryList = (ArrayList<FullTimeSalTO>) map.get("result"); 
+		System.out.println("찎혀요2 서비스="+applyYearMonth);
+		System.out.println("찎혀요2 서비스="+map);
+		ArrayList<FullTimeSalTO> fullTimeSalaryList = (ArrayList<FullTimeSalTO>) map.get("result");
+
 		return fullTimeSalaryList;
-		
+
+	}
+
+	@Override
+	public ArrayList<FullTimeSalTO> findSalary() {
+
+		ArrayList<FullTimeSalTO> findtSalarylist =	fullTimeSalaryMapper.findSalary();
+		System.out.println("리스트 서비스용====="+findtSalarylist);
+
+		return findtSalarylist;
+
 	}
 
 	@Override
 	public ArrayList<FullTimeSalTO> findAllMoney(String applyYearMonth) {
-		
+
 		ArrayList<FullTimeSalTO> findAllMoneyList=null;
 		findAllMoneyList = fullTimeSalaryMapper.findAllMoney(applyYearMonth);
 		return findAllMoneyList;
-		
+
 	}
-	
+
 	@Override
 	public ArrayList<PayDayTO> findPayDayList() {
 
 		ArrayList<PayDayTO> PayDayList=null;
 		PayDayList = fullTimeSalaryMapper.selectPayDayList();
 		return PayDayList;
-		
+
 	}
-	
+
 	@Override
 	public void modifyFullTimeSalary(List<FullTimeSalTO> fullTimeSalary) {
-		
+
 		for(FullTimeSalTO fullTimeSalTO : fullTimeSalary) {
 			fullTimeSalaryMapper.updateFullTimeSalary(fullTimeSalTO);
 		}
-		
+
 	}
-	
+
 	@Override
 	public ArrayList<RetirementSalaryTO> findretirementSalaryList(String empCode) {
-		
-		ArrayList<RetirementSalaryTO> retirementSalaryList = retirementSalMapper.selectretirementSalaryList(empCode);	
+
+		ArrayList<RetirementSalaryTO> retirementSalaryList = retirementSalMapper.selectretirementSalaryList(empCode);
+		System.out.println("리턴값"+retirementSalaryList);
 		return retirementSalaryList;
-		
+
 	}
-	
-	@Override	
+
+	@Override
 	public ArrayList<SalaryBonusTO> findBonusSalary(String empCode){
-		
+
 		ArrayList<SalaryBonusTO> SalaryBonusList=null;
 		SalaryBonusList = salaryBonusMapper.selectBonusSalary(empCode);
+		System.out.println("서비스단"+SalaryBonusList);
 		return SalaryBonusList;
-		
+
 	}
-	
+
 }

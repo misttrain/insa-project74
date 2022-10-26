@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,16 +18,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("/foudinfomgmt/*")
 @RestController
+@CrossOrigin
 public class DeptListController {
-	
+
 	@Autowired
-	private FoudInfoMgmtService foudInfoMgmtService;	
+	private FoudInfoMgmtService foudInfoMgmtService;
 	ModelMap map = null;
-	
-	
+
+
 	@PutMapping("deptlist")
 	public ModelMap batchDeptProcess(HttpServletRequest request, HttpServletResponse response) {
-		
+
 		map = new ModelMap();
 		String sendData = request.getParameter("sendData");
 		Gson gson = new Gson();
@@ -40,21 +42,21 @@ public class DeptListController {
 		} catch (Exception e) {
 			map.clear();
 			map.put("errorCode", -1);
-			map.put("errorMsg", e.getMessage());			
+			map.put("errorMsg", e.getMessage());
 		}
 		return map;
 	}
-	
-	
+
+
 	@GetMapping("deptlist")
-	public ModelMap findDeptList(HttpServletRequest request, HttpServletResponse response) {		
-		map = new ModelMap();		
+	public ModelMap findDeptList(HttpServletRequest request, HttpServletResponse response) {
+		map = new ModelMap();
 		try {
 			List<DeptTO> list = foudInfoMgmtService.findDeptList();
 			DeptTO emptyBean = new DeptTO();
 			map.put("emptyBean", emptyBean);
 			map.put("list", list);
-			
+
 		}catch (Exception e) {
 			map.clear();
 			map.put("errorCode", -1);

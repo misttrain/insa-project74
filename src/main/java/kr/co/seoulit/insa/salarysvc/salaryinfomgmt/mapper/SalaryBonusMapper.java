@@ -7,6 +7,6 @@ import kr.co.seoulit.insa.salarysvc.salaryinfomgmt.to.SalaryBonusTO;
 @Mapper
 public interface SalaryBonusMapper {
 	public ArrayList<SalaryBonusTO> selectBonusSalary(String empCode);
-	
-	
+
+
 }

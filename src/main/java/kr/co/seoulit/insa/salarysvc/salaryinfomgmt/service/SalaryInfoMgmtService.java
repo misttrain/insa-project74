@@ -15,4 +15,6 @@ public interface SalaryInfoMgmtService {
 	public void modifyFullTimeSalary(List<FullTimeSalTO> fullTimeSalary);
 	public ArrayList<RetirementSalaryTO> findretirementSalaryList(String empCode);
 	public ArrayList<SalaryBonusTO> findBonusSalary(String empCode);
+	public ArrayList<FullTimeSalTO> findSalary();
+
 }

@@ -14,7 +14,7 @@ public interface SalaryStdInfoMgmtService {
 	//초과근무관리
 	public ArrayList<BaseExtSalTO> findBaseExtSalList();
 	public void modifyBaseExtSalList(ArrayList<BaseExtSalTO> baseExtSalList);
-	
+
 	//사회보험관리
 	public ArrayList<SocialInsTO> findBaseInsureList(String yearBox);
 	public void updateInsureData(ArrayList<SocialInsTO> baseInsureList);
