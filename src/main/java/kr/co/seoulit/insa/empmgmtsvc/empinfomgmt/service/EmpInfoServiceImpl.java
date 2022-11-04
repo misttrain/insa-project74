@@ -63,6 +63,9 @@ public class EmpInfoServiceImpl implements EmpInfoService {
 	public ArrayList<EmpTO> findEmpList(String deptName) {
 
 		ArrayList<EmpTO> empList = null;
+
+		System.out.println("서비스단"+deptName);
+
 		if (deptName.equals("전체부서")) {
 			empList = empMapper.selectEmpList();
 		} else if (deptName.substring(deptName.length() - 1, deptName.length()).equals("팀")) {
@@ -70,10 +73,26 @@ public class EmpInfoServiceImpl implements EmpInfoService {
 
 		} else {
 			empList = empMapper.selectEmpListN(deptName);
+			System.out.println("되나요"+empList);
 		}
 		return empList;
 
 	}
+
+	@Override
+	public ArrayList<EmpTO> findEmprealList() {
+
+		ArrayList<EmpTO> empList = null;
+
+
+
+		empList = empMapper.selectEmpList();
+
+		return empList;
+
+	}
+
+
 
 	@Override
 	public void registEmployee(EmpTO emp) {

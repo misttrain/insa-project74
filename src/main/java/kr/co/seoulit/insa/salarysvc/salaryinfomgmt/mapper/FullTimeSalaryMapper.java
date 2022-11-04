@@ -8,10 +8,11 @@ import kr.co.seoulit.insa.salarysvc.salaryinfomgmt.to.PayDayTO;
 
 @Mapper
 public interface FullTimeSalaryMapper {
-	
-	public HashMap<String, Object> selectFullTimeSalary(HashMap<String, Object> map); 
-	public ArrayList<FullTimeSalTO> findAllMoney(String empCode); 
-	public void updateFullTimeSalary(FullTimeSalTO fullTimeSalary); 
+
+	public HashMap<String, Object> selectFullTimeSalary(HashMap<String, Object> map);
+	public ArrayList<FullTimeSalTO> findAllMoney(String empCode);
+	public void updateFullTimeSalary(FullTimeSalTO fullTimeSalary);
 	public ArrayList<PayDayTO> selectPayDayList();
-	
+	public ArrayList<FullTimeSalTO> findSalary();
+
 }

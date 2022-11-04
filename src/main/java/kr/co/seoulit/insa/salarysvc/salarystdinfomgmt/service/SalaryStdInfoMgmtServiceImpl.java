@@ -15,7 +15,7 @@ import kr.co.seoulit.insa.salarysvc.salarystdinfomgmt.to.SocialInsTO;
 
 @Service
 public class SalaryStdInfoMgmtServiceImpl implements SalaryStdInfoMgmtService{
-	
+
 	@Autowired
 	private BaseSalaryMapper baseSalaryMapper;
 	@Autowired
@@ -23,16 +23,16 @@ public class SalaryStdInfoMgmtServiceImpl implements SalaryStdInfoMgmtService{
 	@Autowired
 	private SocialInsMapper SocialInsureMapper;
 
-	
+
 	@Override
 	public ArrayList<BaseSalaryTO> findBaseSalaryList() {
 
 		ArrayList<BaseSalaryTO> baseSalaryList=null;
 		baseSalaryList = baseSalaryMapper.selectBaseSalaryList();
 		return baseSalaryList;
-		
+
 	}
-	
+
 	@Override
 	public void modifyBaseSalaryList(ArrayList<BaseSalaryTO> baseSalaryList) {
 
@@ -40,18 +40,18 @@ public class SalaryStdInfoMgmtServiceImpl implements SalaryStdInfoMgmtService{
 			if (baseSalary.getStatus().equals("update"))
 				baseSalaryMapper.updateBaseSalary(baseSalary);
 		}
-		
+
 	}
-	
+
 	@Override
 	public ArrayList<BaseExtSalTO> findBaseExtSalList() {
 
 		ArrayList<BaseExtSalTO> baseExtSalList=null;
 		baseExtSalList = baseExtSalMapper.selectBaseExtSalList();
 		return baseExtSalList;
-		
+
 	}
-	
+
 	@Override
 	public void modifyBaseExtSalList(ArrayList<BaseExtSalTO> baseExtSalList) {
 
@@ -59,37 +59,37 @@ public class SalaryStdInfoMgmtServiceImpl implements SalaryStdInfoMgmtService{
 			if (baseExtSal.getStatus().equals("update"))
 				baseExtSalMapper.updateBaseExtSal(baseExtSal);
 		}
-					
+
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public ArrayList<SocialInsTO> findBaseInsureList(String yearBox) {
 
 		HashMap<String, Object> map = new HashMap<String, Object>();
-	      map.put("yearBox", yearBox);
-	      SocialInsureMapper.selectBaseInsureList(map);
-	      ArrayList<SocialInsTO> BaseInsureList = (ArrayList<SocialInsTO>) map.get("result");
-	      return BaseInsureList;
-		
+		map.put("yearBox", yearBox);
+		SocialInsureMapper.selectBaseInsureList(map);
+		ArrayList<SocialInsTO> BaseInsureList = (ArrayList<SocialInsTO>) map.get("result");
+		return BaseInsureList;
+
 	}
-	
+
 	@Override
 	public void updateInsureData(ArrayList<SocialInsTO> baseInsureList) {
 
 		for (SocialInsTO baseInsure : baseInsureList) {
 			SocialInsureMapper.updateInsureData(baseInsure);
 		}
-		
+
 	}
 
 	@Override
 	public void deleteInsureData(ArrayList<SocialInsTO> baseInsureList) {
-	
+
 		for (SocialInsTO baseInsure : baseInsureList) {
 			SocialInsureMapper.deleteInsureData(baseInsure);
 		}
-	
+
 	}
-	
+
 }

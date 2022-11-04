@@ -8,21 +8,21 @@ import kr.co.seoulit.insa.empmgmtsvc.empinfomgmt.to.*;
 public interface EmpInfoService {
 	public EmpTO getEmp(String name); //selectEmp
 	public String findLastEmpCode();
-	public EmpTO findAllEmpInfo(String empCode);	
+	public EmpTO findAllEmpInfo(String empCode);
 	public ArrayList<EmpTO> findEmpList(String dept); //findEmployeeListByDept
 	public void registEmployee(EmpTO empto);
 	public void modifyEmployee(EmpTO emp);
 	public void deleteEmpList(ArrayList<EmpTO> empList);
 	public ArrayList<DeptTO> findDeptList();
-	
+
 	public void registEmpEval(EmpEvalTO empevalto);
 	public ArrayList<EmpEvalTO> findEmpEval();
 	public ArrayList<EmpEvalTO> findEmpEval(String dept, String year);
 	public void removeEmpEvalList(String emp_code , String apply_day);
-	
+
 	public void modifyEmpEvalList(ArrayList<EmpEvalTO> empevalList);
 
-    public ArrayList<EmpAppointmentInfoTO> allEmpAppointInfo();
+	public ArrayList<EmpAppointmentInfoTO> allEmpAppointInfo();
 
 	public ArrayList<EmpAppointmentTypeTO> findAllAppointEmp(String hosu);
 
@@ -46,4 +46,6 @@ public interface EmpInfoService {
 	public ArrayList<EmpAppointmentTO> findChangeDetailList(String empCode, String hosu);
 
 	public void modifyAppointment(ArrayList<EmpAppointmentTO> confirmAppointment);
+
+	public ArrayList<EmpTO> findEmprealList();
 }

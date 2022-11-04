@@ -1,10 +1,13 @@
 package kr.co.seoulit.insa.salarysvc.salaryinfomgmt.controller;
 
 import java.util.ArrayList;
+import java.util.Enumeration;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +21,7 @@ import kr.co.seoulit.insa.salarysvc.salaryinfomgmt.to.PayDayTO;
 
 @RequestMapping("/salaryinfomgmt/*")
 @RestController
+@CrossOrigin
 public class FullTimeSalaryController
 {
 
@@ -28,10 +32,10 @@ public class FullTimeSalaryController
 	@GetMapping("salary")
 	public ModelMap AllMoneyList(@RequestParam("applyYearMonth") String applyYearMonth, HttpServletResponse response)
 	{
-
 		map = new ModelMap();
 		try
 		{
+			System.out.println("찎혀요1="+applyYearMonth);
 			ArrayList<FullTimeSalTO> AllMoneyList = salaryInfoMgmtService.findAllMoney(applyYearMonth);
 			map.put("AllMoneyList", AllMoneyList);
 			map.put("errorMsg", "success");
@@ -47,14 +51,14 @@ public class FullTimeSalaryController
 	}
 
 	@GetMapping("/salary/empcode")
-	public ModelMap selectSalary(@RequestParam("apply_year_month") String applyYearMonth,
-			@RequestParam("empCode") String empCode, HttpServletResponse response)
+	public ModelMap selectSalary(@RequestParam("applyYearMonth") String applyYearMonth,
+								 @RequestParam("empCode") String empCode, HttpServletResponse response)
 	{
 
 		map = new ModelMap();
 		try
 		{
-
+			System.out.println("찎혀요2="+applyYearMonth);
 			ArrayList<FullTimeSalTO> fullTimeSalaryList = salaryInfoMgmtService.findselectSalary(applyYearMonth,
 					empCode);
 			map.put("FullTimeSalaryList", fullTimeSalaryList);
@@ -67,7 +71,31 @@ public class FullTimeSalaryController
 			map.put("errorCode", -1);
 			map.put("errorMsg", dae.getMessage());
 		}
+		System.out.println("체크임" +"applyYearMonth= " +applyYearMonth+"empCode= " +empCode );
 		System.out.println("체크임" + map.get("FullTimeSalaryList"));
+		return map;
+	}
+
+	@GetMapping("/salary/list")
+	public ModelMap selectSalary(HttpServletRequest request, HttpServletResponse response)
+	{
+		map = new ModelMap();
+		try
+		{
+
+			System.out.println("리스트 컨트롤러===="+  request );
+			ArrayList<FullTimeSalTO> fullTimeSalaryList = salaryInfoMgmtService.findSalary();
+			map.put("FullTimeSalaryList", fullTimeSalaryList);
+			map.put("errorMsg", "success");
+			map.put("errorCode", 0);
+
+		} catch (Exception dae)
+		{
+			map.clear();
+			map.put("errorCode", -1);
+			map.put("errorMsg", dae.getMessage());
+		}
+		System.out.println("리스트 컨트롤러 반환====" + map );
 		return map;
 	}
 

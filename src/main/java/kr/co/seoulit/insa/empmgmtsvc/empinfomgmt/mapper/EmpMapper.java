@@ -8,7 +8,7 @@ import kr.co.seoulit.insa.empmgmtsvc.empinfomgmt.to.EmpTO;
 
 @Mapper
 public interface EmpMapper {
-	
+
 	public EmpTO selectEmp(String empName);
 	public String selectLastEmpCode();
 	public ArrayList<EmpTO> selectEmpList();
@@ -20,5 +20,5 @@ public interface EmpMapper {
 	public void registEmployee(HashMap<String, Object> map);
 	public void updateEmployee(EmpTO emp);
 	public void deleteEmployee(HashMap<String, String> map);
-	
+
 }

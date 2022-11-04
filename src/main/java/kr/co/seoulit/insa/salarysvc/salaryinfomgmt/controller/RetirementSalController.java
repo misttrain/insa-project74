@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,6 +14,7 @@ import kr.co.seoulit.insa.salarysvc.salaryinfomgmt.to.RetirementSalaryTO;
 
 @RequestMapping("/salaryinfomgmt/*")
 @RestController
+@CrossOrigin
 public class RetirementSalController
 {
 

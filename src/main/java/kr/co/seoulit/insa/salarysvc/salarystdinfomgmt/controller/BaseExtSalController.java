@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import kr.co.seoulit.insa.salarysvc.salarystdinfomgmt.to.BaseExtSalTO;
 
 @RequestMapping("/salarystdinfomgmt/*")
 @RestController
+@CrossOrigin
 public class BaseExtSalController
 {
 
