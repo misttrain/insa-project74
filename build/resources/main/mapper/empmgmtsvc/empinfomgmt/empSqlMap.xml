@@ -236,7 +236,7 @@
     <delete id="deleteEmployee" parameterMap="empDeleteParameter"  statementType="CALLABLE">
       <![CDATA[
         {call P_DELETE_EMP(?,?,?)}
-        ]]> 
+        ]]>
    </delete>
 
 

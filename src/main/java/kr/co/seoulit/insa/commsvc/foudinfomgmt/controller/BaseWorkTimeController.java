@@ -1,8 +1,11 @@
 package kr.co.seoulit.insa.commsvc.foudinfomgmt.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import kr.co.seoulit.insa.attdsvc.attdappvl.to.MonthAttdMgtTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -43,8 +46,11 @@ public class BaseWorkTimeController {
 	@PutMapping("basetime")
 	public ModelMap batchTimeProcess(HttpServletRequest request, HttpServletResponse response) {
 
+
 		map = new ModelMap();
 		String sendData = request.getParameter("sendData");
+		System.out.println("저장 요청 도착");
+		System.out.println(sendData);
 		Gson gson = new Gson();
 		ArrayList<BaseWorkTimeTO> timeList = gson.fromJson(sendData, new TypeToken<ArrayList<BaseWorkTimeTO>>() {
 		}.getType()); // 변경
@@ -63,5 +69,50 @@ public class BaseWorkTimeController {
 		return map;
 	}
 
+	@PutMapping("react-basetime")
+	public ModelMap batchTimeProcess2(@RequestBody HashMap<String, ArrayList<BaseWorkTimeTO>> timeList, HttpServletResponse response) {
+
+		map = new ModelMap();
+//		String sendData = request.getParameter("sendData");
+		System.out.println("저장 요청 도착");
+		System.out.println(timeList.get("sendData"));
+		ArrayList<BaseWorkTimeTO> BWTTO = timeList.get("sendData");
+
+		try {
+
+			foudInfoMgmtService.batchTimeProcess(BWTTO);
+			map.put("errorCode", 0);
+			map.put("errorMsg",  "기준근무시간이 등록/삭제가 완료되었습니다.");
+
+		} catch (Exception e) {
+			map.clear();
+			map.put("errorCode", -1);
+			map.put("errorMsg", e.getMessage());
+		}
+		return map;
+	}
+
+	@PostMapping("react-deleteBasetime")
+	public ModelMap deleteTimeProcess(@RequestBody HashMap<String, ArrayList<BaseWorkTimeTO>> timeList, HttpServletResponse response) {
+
+		map = new ModelMap();
+//		String sendData = request.getParameter("sendData");
+		System.out.println("삭제 요청 도착");
+		System.out.println(timeList.get("sendData"));
+		ArrayList<BaseWorkTimeTO> BWTTO = timeList.get("sendData");
+
+		try {
+
+			foudInfoMgmtService.deleteTimeProcess(BWTTO);
+			map.put("errorCode", 0);
+			map.put("errorMsg",  "기준근무시간이 등록/삭제가 완료되었습니다.");
+
+		} catch (Exception e) {
+			map.clear();
+			map.put("errorCode", -1);
+			map.put("errorMsg", e.getMessage());
+		}
+		return map;
+	}
 	
 }

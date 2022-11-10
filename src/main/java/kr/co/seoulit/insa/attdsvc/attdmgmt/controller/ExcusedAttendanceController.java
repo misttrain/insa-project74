@@ -55,10 +55,10 @@ public class ExcusedAttendanceController {
 		System.out.println("근태외 요청 도착");
 		System.out.println("출장신청 요청 도착");
 		System.out.println(restAttdList);
-		System.out.println(restAttdList.get("sandData"));
+		System.out.println(restAttdList.get("sendData"));
 
 		try {
-			RestAttdTO restAttd = restAttdList.get("sandData");
+			RestAttdTO restAttd = restAttdList.get("sendData");
 			attdMgmtService.registRestAttd(restAttd);
 			map.put("errorMsg", "success");
 			map.put("errorCode", 0);

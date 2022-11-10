@@ -70,13 +70,13 @@ public class AnnualLeaveMgtController {
     @PutMapping("/react-annual-leaveMgt/1")
     public ModelMap modifyAnnualVacationMgtList2(@RequestBody HashMap<String, ArrayList<AnnualLeaveMgtTO>> request, HttpServletResponse response){
         map = new ModelMap();
-        System.out.println(request.get("sandData"));
+        System.out.println(request.get("sendData"));
 
         response.setContentType("application/json; charset=UTF-8");
         try {
 //
 //            Gson gson = new Gson();
-            ArrayList<AnnualLeaveMgtTO> annualVacationMgtList = request.get("sandData");
+            ArrayList<AnnualLeaveMgtTO> annualVacationMgtList = request.get("sendData");
             System.out.println("annualVacationMgtList");
             System.out.println(annualVacationMgtList);
             attdAppvlService.modifyAnnualVacationMgtList(annualVacationMgtList);

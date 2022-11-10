@@ -188,21 +188,35 @@ public class FoudInfoMgmtServiceImpl implements FoudInfoMgmtService {
 	public void batchTimeProcess(ArrayList<BaseWorkTimeTO> timeList) {
 
 		for (BaseWorkTimeTO baseWorkTimeTO : timeList) {
-			switch (baseWorkTimeTO.getStatus()) {
 
-			case "update":
 				baseWorkTimeMapper.updateTime(baseWorkTimeTO);
-				break;
 
-			case "insert":
-				baseWorkTimeMapper.insertTime(baseWorkTimeTO);
-				break;
-
-			case "delete":
-				baseWorkTimeMapper.deleteTime(baseWorkTimeTO);
-				break;
 			}
 		}
+
+	public void deleteTimeProcess(ArrayList<BaseWorkTimeTO> timeList){
+		for (BaseWorkTimeTO baseWorkTimeTO : timeList) {
+			baseWorkTimeMapper.deleteTime(baseWorkTimeTO);
+		}
+	}
 	}
 
-}
+
+//		for (BaseWorkTimeTO baseWorkTimeTO : timeList) {
+//			switch (baseWorkTimeTO.getStatus()) {
+//
+//			case "update":
+//				baseWorkTimeMapper.updateTime(baseWorkTimeTO);
+//				break;
+//
+//			case "insert":
+//				baseWorkTimeMapper.insertTime(baseWorkTimeTO);
+//				break;
+//
+//			case "delete":
+//				baseWorkTimeMapper.deleteTime(baseWorkTimeTO);
+//				break;
+//			}
+//		}
+
+

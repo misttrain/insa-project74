@@ -52,13 +52,13 @@ public class AttendanceApprovalController {
 	@PutMapping("react-attnd-approval")
 	public ModelMap modifyRestAttdList2(@RequestBody HashMap<String, ArrayList<RestAttdTO>> request, HttpServletResponse response){
 		System.out.println("근태외 확정 버튼 클릭시 요청");
-		System.out.println(request.get("sandData"));
+		System.out.println(request.get("sendData"));
 
 		map = new ModelMap();
 		response.setContentType("application/json; charset=UTF-8");
 
 		try {
-			ArrayList<RestAttdTO> restAttdList = request.get("sandData");
+			ArrayList<RestAttdTO> restAttdList = request.get("sendData");
 			System.out.println("restAttdList");
 			System.out.println(restAttdList);
 			attdAppvlService.modifyRestAttdList(restAttdList);

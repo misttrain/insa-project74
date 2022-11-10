@@ -25,5 +25,6 @@ public interface FoudInfoMgmtService {
   //기준근무시간관리
   public ArrayList<BaseWorkTimeTO> findTimeList();
   public void batchTimeProcess(ArrayList<BaseWorkTimeTO> timeTO);
+  public void deleteTimeProcess(ArrayList<BaseWorkTimeTO> timeTO);
 
 }
