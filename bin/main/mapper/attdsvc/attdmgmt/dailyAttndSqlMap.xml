@@ -61,34 +61,6 @@
       {call P_INSERT_DAY_ATTD(?, DAY_ATTD_CODE_SEQ.NEXTVAL, ?, ?, TO_DATE(?, 'YYYY-MM-DD'), ?, ?, ?)}
       ]]>
 
-	</select>
-
-
-	<parameterMap type="map" id="DayATTdTO">
-		<parameter property="empCode" mode="IN"/>
-		<parameter property="attdTypeCode" mode="IN"/>
-		<parameter property="attdTypeName" mode="IN"/>
-		<parameter property="applyDay" mode="IN"/>
-		<parameter property="time" mode="IN"/>
-		<parameter property="ERROR_CODE" mode="OUT" javaType="java.lang.Integer" jdbcType="DECIMAL"/>
-		<parameter property="ERROR_MSG" mode="OUT" javaType="java.lang.String" jdbcType="VARCHAR"/>
-	</parameterMap>
-
-
-	<select id="batchInsertDayAttd2" parameterMap="DayATTdTO" statementType="CALLABLE">
-   <![CDATA[
-		{call P_INSERT_DAY_ATTD(
-				#{empCode,mode=IN,jdbcType=VARCHAR}
-			, DAY_ATTD_CODE_SEQ.NEXTVAL
-			, #{attdTypeCode,mode=IN,jdbcType=VARCHAR}
-			, #{attdTypeName,mode=IN,jdbcType=VARCHAR}
-			, #{applyDay,mode=IN,jdbcType=DATE}
-			, #{time,mode=IN,jdbcType=NUMERIC}
-			, #{errorCode, mode=OUT, jdbcType=VARCHAR}
-			, #{errorMsg, mode=OUT, jdbcType=VARCHAR }
-			)}
-		]]>
-   </select>
-
-
+	</select>	
+	
 </mapper>

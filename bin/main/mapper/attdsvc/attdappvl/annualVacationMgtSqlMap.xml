@@ -29,18 +29,10 @@
 	
 	<update id="updateAnnualVacationMgtList"
 	 parameterType="kr.co.seoulit.insa.attdsvc.attdappvl.to.AnnualLeaveMgtTO">
-		<![CDATA[
-		UPDATE ANNUAL_VACATION_MANAGE SET
-		FINALIZE_STATUS = #{finalizeStatus,jdbcType=VARCHAR} , REMAINING_HOLIDAY = #{remainingHoliday,jdbcType=INTEGER}
-		WHERE EMP_CODE = #{empCode,jdbcType=VARCHAR} AND APPLY_YEAR_MONTH = #{applyYearMonth,jdbcType=VARCHAR}
-		]]>
+		UPDATE ANNUAL_VACATION_MANAGE SET 
+		FINALIZE_STATUS = #finalizeStatus#, REMAINING_HOLIDAY = #remainingHoliday#
+		WHERE EMP_CODE = #{empCode} AND APPLY_YEAR_MONTH = #{applyYearMonth}
 	</update>
-
-<!--	<update id="updateAnnualVacationMgtList" parameterType="kr.co.seoulit.insa.attdsvc.attdappvl.to.AnnualLeaveMgtTO">-->
-<!--	UPDATE ANNUAL_VACATION_MANAGE SET-->
-<!--	FINALIZE_STATUS ='Y' , REMAINING_HOLIDAY = 25-->
-<!--	WHERE EMP_CODE = 'A490082' AND APPLY_YEAR_MONTH ='202207'-->
-<!--	</update>-->
 	
 	
 	<update id="cancelAnnualVacationMgtList"

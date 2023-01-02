@@ -37,8 +37,17 @@
 	<update id="updateMonthAttdMgtList" parameterType="kr.co.seoulit.insa.attdsvc.attdappvl.to.MonthAttdMgtTO">
 		UPDATE MONTH_ATTD_MANAGE SET
 		FINALIZE_STATUS = #{finalizeStatus}
-		WHERE EMP_CODE = #{empCode} 
+		WHERE EMP_CODE = #{empCode}
 		AND APPLY_YEAR_MONTH = #{applyYearMonth}
-	</update>	
-	
+	</update>
+
+<!--	<update id="updateMonthAttdMgtList" parameterType="kr.co.seoulit.insa.attdsvc.attdappvl.to.MonthAttdMgtTO">-->
+<!--		UPDATE MONTH_ATTD_MANAGE SET-->
+<!--		FINALIZE_STATUS = #{finalizeStatus}-->
+<!--		WHERE EMP_CODE = #{empCode}-->
+<!--		AND APPLY_YEAR_MONTH = #{applyYearMonth}-->
+<!--	</update>-->
+
+
+
 </mapper>

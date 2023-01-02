@@ -3,7 +3,7 @@
 
 <mapper namespace="kr.co.seoulit.insa.salarysvc.salarystdinfomgmt.mapper.BaseSalaryMapper">
 
-	
+
 	<resultMap type="kr.co.seoulit.insa.salarysvc.salarystdinfomgmt.to.BaseSalaryTO" id="baseSalaryResult">
 		<result property="positionCode" column="POSITION_CODE" />
 		<result property="position" column="POSITION" />
@@ -14,41 +14,41 @@
 
 	<select id="selectBaseSalaryList" resultMap="baseSalaryResult">
 		<![CDATA[
-			SELECT * FROM POSITION 
-			ORDER BY POSITION_CODE
+		SELECT * FROM POSITION
+		ORDER BY POSITION_CODE
 		]]>
 	</select>
-	
-	
+
+
 	<update id="updateBaseSalary" parameterType="kr.co.seoulit.insa.salarysvc.salarystdinfomgmt.to.BaseSalaryTO">
 		<![CDATA[
-			UPDATE  POSITION SET
+		UPDATE  POSITION SET
 			BASE_SALARY = #{baseSalary}
-			, HOBONG_RATIO = #{hobongRatio}
-			WHERE POSITION_CODE = #{positionCode}
+						   , HOBONG_RATIO = #{hobongRatio}
+		WHERE POSITION_CODE = #{positionCode}
 		]]>
 	</update>
-	
-	
+
+
 	<insert id="insertBaseSalary" parameterType="kr.co.seoulit.insa.salarysvc.salarystdinfomgmt.to.BaseSalaryTO">
 		<![CDATA[
-			INSERT INTO BASE_SALARY 
-			VALUES 
+		INSERT INTO BASE_SALARY
+		VALUES
 			( #{positionCode}
 			, #{position}
 			, #{baseSalary}
 			, #{hobongRatio} )
 		]]>
 	</insert>
-	
-	
+
+
 	<delete id="deleteBaseSalary" parameterType="kr.co.seoulit.insa.salarysvc.salarystdinfomgmt.to.BaseSalaryTO">
 		<![CDATA[
-			DELETE BASE_SALARY
+		DELETE BASE_SALARY
 			WHERE POSITION_CODE = #{positionCode}
-			AND POSITION = #{position}
+		AND POSITION = #{position}
 		]]>
 	</delete>
-	
-	
+
+
 </mapper>
