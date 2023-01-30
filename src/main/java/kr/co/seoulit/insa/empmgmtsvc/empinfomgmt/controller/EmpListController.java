@@ -31,7 +31,6 @@ public class EmpListController {
 		map = new ModelMap();
 
 		try {
-			System.out.println("성민="+val);
 			String value = "전체부서";
 			if (val != null) {
 				value = val;
