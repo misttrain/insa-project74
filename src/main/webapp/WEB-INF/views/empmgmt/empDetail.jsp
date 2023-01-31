@@ -81,7 +81,7 @@ function showEmpListDeptGrid() {
 		{ headerName : "사원명", field : "empName" },
 		{ headerName : "부서", field : "deptName" }, 
 		{ headerName : "직급", field : "position" }, 
-		{ headerName : "성별", field : "gender", hide : true }, 
+		{ headerName : "성별", field : "gender" },
 		{ headerName : "전화번호", field : "mobileNumber", hide : true }, 
 		{ headerName : "이메일", field : "email" , width:100, hide : true}, 
 		{ headerName : "거주지", field : "address", hide : true }, 
