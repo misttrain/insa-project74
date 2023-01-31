@@ -66,17 +66,17 @@ $(document).ready(function() {
 /* 부서별 사원 정보 그리드에 뿌리는 함수 */
 function showEmpListDeptGrid() {
 	var columnDefs = [ 
-		{ headerName : "사원코드", field : "empCode", hide : true },
+		{ headerName : "사원코드", field : "empCode" },
 		{ headerName : "사원명", field : "empName" },
 		{ headerName : "부서", field : "deptName" }, 
 		{ headerName : "직급", field : "position" }, 
-		{ headerName : "성별", field : "gender", hide : true }, 
-		{ headerName : "전화번호", field : "mobileNumber", hide : true }, 
+		{ headerName : "성별", field : "gender" },
+		{ headerName : "전화번호", field : "mobileNumber" },
 		{ headerName : "이메일", field : "email" }, 
-		{ headerName : "거주지", field : "address", hide : true }, 
-		{ headerName : "최종학력", field : "lastSchool", hide : true }, 
-		{ headerName : "사진", field : "imgExtend", hide : true }, 
-		{ headerName : "생년월일", field : "birthdate", hide : true } 
+		{ headerName : "거주지", field : "address" },
+		{ headerName : "최종학력", field : "lastSchool" },
+		{ headerName : "사진", field : "imgExtend" },
+		{ headerName : "생년월일", field : "birthdate" }
 	];
 	gridOptions = {
 		//console.log(node.data.imgExtend);
@@ -130,17 +130,17 @@ function showEmpListDeptGrid() {
 /* 이름으로 검색결과 그리드에 뿌리는 함수 */
 function showEmpListNameGrid() {
 	var columnDefs = [ 
-		{ headerName : "사원코드", field : "empCode", hide : true }, 
+		{ headerName : "사원코드", field : "empCode" },
 		{ headerName : "사원명", field : "empName"  }, 
 		{ headerName : "부서", field : "deptName" }, 
 		{ headerName : "직급", field : "position" }, 
-		{ headerName : "성별", field : "gender", hide : true }, 
-		{ headerName : "전화번호", field : "mobileNumber", hide : true }, 
+		{ headerName : "성별", field : "gender" },
+		{ headerName : "전화번호", field : "mobileNumber" },
 		{ headerName : "이메일", field : "email" }, 
-		{ headerName : "거주지", field : "address", hide : true }, 
-		{ headerName : "최종학력", field : "lastSchool", hide : true }, 
-		{ headerName : "사진", field : "imgExtend", hide : true }, 
-		{ headerName : "생년월일", field : "birthdate", hide : true } 
+		{ headerName : "거주지", field : "address" },
+		{ headerName : "최종학력", field : "lastSchool" }, 
+		{ headerName : "사진", field : "imgExtend" },
+		{ headerName : "생년월일", field : "birthdate" }
 	];
 	gridOptions = {
 		columnDefs : columnDefs,
