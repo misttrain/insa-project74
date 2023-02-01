@@ -22,6 +22,3 @@ public class InsaApplication {
 	}
 	
 }
-//commit test
-//수정하고 있잖아
-//매장당할듯
