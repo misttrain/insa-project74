@@ -22,3 +22,4 @@ public class InsaApplication {
 	}
 	
 }
+//진짜 미쳤나봐 정신나갔나봐
